@@ -15,6 +15,10 @@ export const metadata = {
   title: "Elevate Hospitality",
   description:
     "Elevating hospitality through exceptional hotel management and experiences.",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
