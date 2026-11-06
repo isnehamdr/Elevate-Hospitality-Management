@@ -6,13 +6,12 @@ import { usePathname } from "next/navigation";
 import { Hotel, Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Why Us", href: "/#why" },
-  { label: "Markets", href: "/#markets" },
-  { label: "Partners", href: "/#partners" },
+  { label: "About", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Markets", href: "/markets" },
+  { label: "Partners", href: "/partners" },
 ];
-const CONTACT_LINK = { label: "Contact Us", href: "/#contact" };
+const CONTACT_LINK = { label: "Contact Us", href: "/contact" };
 const SITE = { name: "Elevate", fullName: "Elevate Hospitality Management" };
 
 export default function Navbar() {
@@ -45,7 +44,7 @@ export default function Navbar() {
   }, [open]);
 
   const linkClass =
-    "text-sm font-medium text-[#0f2547] transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]";
+    "text-md font-medium text-[#0f2547] transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]";
 
   return (
     <header
@@ -60,12 +59,12 @@ export default function Navbar() {
           className="flex min-w-0 items-center gap-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
           aria-label={`${SITE.fullName} home`}
         >
-          <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-[#0f2547] text-white">
-            <Hotel size={20} aria-hidden="true" />
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded bg-[#0f2547] text-white">
+            <Hotel size={28} aria-hidden="true" />
           </span>
           <span className="flex min-w-0 flex-col leading-tight">
-            <span className="font-serif text-xl font-bold text-[#0f2547]">{SITE.name}</span>
-            <span className="hidden truncate text-[11px] font-medium text-slate-500 min-[400px]:block">
+            <span className="font-serif text-2xl font-bold text-[#0f2547]">{SITE.name}</span>
+            <span className="hidden truncate text-[11px] sm:text-md font-medium text-slate-500 min-[400px]:block">
               Hospitality Management
             </span>
           </span>
@@ -86,7 +85,7 @@ export default function Navbar() {
           ))}
           <Link
             href={CONTACT_LINK.href}
-            className="rounded bg-[#0f2547] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#1d3d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
+            className="rounded bg-[#0f2547] px-5 py-2.5 text-md font-medium text-white transition-colors hover:bg-[#1d3d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
           >
             {CONTACT_LINK.label}
           </Link>
