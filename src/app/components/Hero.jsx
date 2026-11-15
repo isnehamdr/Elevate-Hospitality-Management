@@ -133,7 +133,7 @@ export default function Hero() {
       <div className=" grid max-w-7xl mx-auto items-stretch gap-8 px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-20">
         {/* Text: first on phones and tablets, left on desktop */}
         <div className="flex flex-col">
-          <p className="text-base sm:font-normal font-medium uppercase lg:tracking-wide text-[#b8935a] lg:mt-12 sm:text-sm">
+          <p className="text-base font-medium uppercase lg:tracking-wide text-[#b8935a] lg:mt-12 sm:text-sm">
             Hotel management and hospitality solutions in Nepal
           </p>
 
