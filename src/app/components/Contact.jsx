@@ -32,8 +32,8 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
         {/* Left: details */}
         <div>
-          <p className="text-sm font-medium text-[#b8935a]">Contact</p>
-          <h2 className="mt-1 font-serif text-3xl font-bold leading-tight text-[#0f2547] md:text-4xl">
+          <p className="text-sm font-medium text-[#b8935a] lg:text-lg">Contact</p>
+          <h2 className="mt-1 font-serif text-2xl font-bold leading-tight text-[#0f2547] md:text-4xl">
             Start a conversation
           </h2>
           <p className="mt-4 max-w-md leading-relaxed text-slate-600">

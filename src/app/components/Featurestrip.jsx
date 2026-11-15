@@ -26,7 +26,7 @@ const FEATURES = [
 export default function FeatureStrip() {
   return (
     <section className="bg-[#0f2547]" aria-label="Key strengths">
-      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 sm:grid-cols-2 sm:gap-8 sm:px-6 lg:grid-cols-4 lg:px-8 lg:py-10">
+      <div className="mx-auto grid max-w-7xl gap-6 px-4 py-8 grid-cols-2 sm:gap-6 sm:px-6 lg:grid-cols-4 lg:px-8 lg:py-10">
         {FEATURES.map(({ icon: Icon, title, text }) => (
           <div key={title} className="flex items-start gap-3 text-white">
             <Icon className="mt-1 shrink-0 text-[#b8935a]" size={26} aria-hidden="true" />

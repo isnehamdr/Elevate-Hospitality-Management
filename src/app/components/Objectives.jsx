@@ -14,11 +14,11 @@ const OUTCOME = "Create sustainable value for hotel owners and investors";
 export default function Objectives() {
   return (
     <section id="objectives" className="bg-white py-16 sm:py-20">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-0">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-6">
         {/* Heading: stays in view beside the list on large screens */}
         <div className="lg:col-span-6">
           <div className="lg:sticky lg:top-28">
-            <p className="text-lg font-medium text-[#b8935a] tracking-wide uppercase">Strategic objectives</p>
+            <p className="text-sm font-medium text-[#b8935a] tracking-wide uppercase lg:text-lg">Strategic objectives</p>
             <h2 className="mt-2 font-serif text-3xl font-bold leading-tight text-[#0f2547] sm:text-4xl xl:text-5xl max-w-xl mt-6 ">
               What every property we manage works toward
             </h2>

@@ -23,7 +23,7 @@ export default function SalesChannels() {
         {/* Heading: title on the left, supporting text on the right (stacked on small screens) */}
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end lg:gap-16">
           <div>
-            <p className="text-sm font-medium text-[#b8935a]">Sales support</p>
+            <p className="text-sm font-medium text-[#b8935a] lg:text-lg">Sales support</p>
             <h2 className="mt-1 font-serif text-3xl font-bold leading-tight text-[#0f2547] md:text-4xl">
               Connecting better, through many channels
             </h2>
