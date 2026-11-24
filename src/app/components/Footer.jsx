@@ -250,8 +250,13 @@
 //   );
 // }
 
+
+
+
+
 import Link from "next/link";
-import { Hotel } from "lucide-react";
+import NextImage from "next/image";
+
 
 const SITE = {
   fullName: "Elevate Hospitality Management",
@@ -305,28 +310,34 @@ export default function Footer() {
       {/* Phones: 1 column. Tablets: brand full width, then links 2/5 and services 3/5.
           Laptops and up: brand 4/12, links 3/12, services 5/12. */}
       <div className="mx-auto grid max-w-7xl gap-x-10 gap-y-10 px-4 py-12 sm:grid-cols-5 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-16">
-        {/* Brand */}
-        <div className="sm:col-span-5 lg:col-span-4">
-          <Link href="/" className="inline-flex items-center gap-2.5" aria-label={`${SITE.fullName} home`}>
-            <span className="grid h-9 w-9 shrink-0 place-items-center rounded bg-white/10 text-[#b8935a]">
-              <Hotel size={20} aria-hidden="true" />
-            </span>
-            <span className="font-serif text-xl font-bold leading-tight text-white">{SITE.fullName}</span>
-          </Link>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed">{SITE.description}</p>
-          <p className="mt-4 font-serif text-base italic text-[#b8935a]">{SITE.tagline}</p>
+      
+{/* Brand */}
+<div className="sm:col-span-5 lg:col-span-4">
+  <Link
+    href="/"
+    className="inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
+    aria-label={`${SITE.fullName} home`}
+  >
+    <span className="relative block sm:h-32 sm:w-32 h-20 w-20 shrink-0 bg-white">
+      <NextImage
+        src="/images/logo.png"
+        alt={`${SITE.fullName} logo`}
+        fill
+        priority
+        sizes="58px"
+        className="object-contain object-left"
+      />
+    </span>
+  </Link>
 
-          {/* Social */}
-          <a
-            href={SITE.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Elevate Hospitality Management on Facebook"
-            className="mt-5 inline-grid h-10 w-10 place-items-center rounded-full border border-white/20 text-white transition-colors hover:border-[#b8935a] hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
-          >
-            <FacebookIcon className="h-[18px] w-[18px]" />
-          </a>
-        </div>
+  <p className="mt-3 max-w-sm text-sm leading-relaxed">
+    {SITE.description}
+  </p>
+
+  <p className="mt-4 font-serif text-base italic text-[#b8935a]">
+    {SITE.tagline}
+  </p>
+</div>
 
         {/* Quick links: two columns */}
         <nav aria-label="Footer" className="sm:col-span-2 lg:col-span-3">

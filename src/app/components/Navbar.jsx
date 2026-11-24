@@ -1,136 +1,286 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Hotel, Menu, X } from "lucide-react";
+import NextImage from "next/image";
+import { Menu, X } from "lucide-react";
+
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Markets", href: "/markets" },
-  { label: "Partners", href: "/partners" },
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Markets", href: "#markets" },
+  { label: "Partners", href: "#partners" },
 ];
-const CONTACT_LINK = { label: "Contact Us", href: "/contact" };
-const SITE = { name: "Elevate", fullName: "Elevate Hospitality Management" };
+
+const CONTACT_LINK = {
+  label: "Contact Us",
+  href: "#contact",
+};
+
+const SITE = {
+  fullName: "Elevate Hospitality Management",
+};
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [activeSection, setActiveSection] = useState("home");
 
-  // Close the mobile menu after navigating
-  useEffect(() => setOpen(false), [pathname]);
+  const scrollToSection = (href) => {
+    const target = document.querySelector(href);
 
-  // Subtle shadow once the page scrolls
+    if (!target) return;
+
+    const headerOffset = 80;
+
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      headerOffset;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth",
+    });
+
+    setOpen(false);
+  };
+
+  // Scroll shadow
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
+
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Escape closes the menu; page scroll is locked while it is open
+  // Active section detection
+  useEffect(() => {
+    const sections = document.querySelectorAll(
+      "#home, #about, #services, #markets, #partners, #contact"
+    );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-25% 0px -60% 0px",
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  // Mobile menu keyboard and scroll handling
   useEffect(() => {
     if (!open) return;
-    const onKey = (e) => e.key === "Escape" && setOpen(false);
-    document.addEventListener("keydown", onKey);
-    const prev = document.body.style.overflow;
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+
     document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleKeyDown);
+
     return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prev;
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
 
   const linkClass =
-    "text-md font-medium text-[#0f2547] transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]";
+    "text-base font-medium text-[#0f2547] transition-colors duration-300 hover:text-[#b8935a]";
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur transition-shadow ${
+      className={`sticky top-0 z-50 border-b border-slate-100 bg-white/95 backdrop-blur-md transition-shadow duration-300 ${
         scrolled ? "shadow-md" : ""
       }`}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
+
         {/* Logo */}
-        <Link
-          href="/"
-          className="flex min-w-0 items-center gap-2.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("#home");
+          }}
+          className="flex items-center"
           aria-label={`${SITE.fullName} home`}
         >
-          <span className="grid h-12 w-12 shrink-0 place-items-center rounded bg-[#0f2547] text-white">
-            <Hotel size={28} aria-hidden="true" />
+          <span className="relative block h-20 w-20 sm:h-24 sm:w-24">
+            <NextImage
+              src="/images/logoremovebg.png"
+              alt={`${SITE.fullName} Logo`}
+              fill
+              priority
+              sizes="96px"
+              className="object-contain"
+            />
           </span>
-          <span className="flex min-w-0 flex-col leading-tight">
-            <span className="font-serif text-2xl font-bold text-[#0f2547]">{SITE.name}</span>
-            <span className="hidden truncate text-[11px] sm:text-md font-medium text-slate-500 min-[400px]:block">
-              Hospitality Management
-            </span>
-          </span>
-        </Link>
+        </a>
 
-        {/* Desktop navigation (large screens and up) */}
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-8" aria-label="Main">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
+        {/* Desktop Navigation */}
+        <nav
+          className="hidden items-center gap-6 lg:flex xl:gap-8"
+          aria-label="Main navigation"
+        >
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.href);
+              }}
               className={`${linkClass} ${
-                l.href === pathname ? "border-b-2 border-[#b8935a] pb-0.5" : ""
+                activeSection === link.href.slice(1)
+                  ? "border-b-2 border-[#b8935a] pb-1"
+                  : ""
               }`}
             >
-              {l.label}
-            </Link>
+              {link.label}
+            </a>
           ))}
-          <Link
+
+          <a
             href={CONTACT_LINK.href}
-            className="rounded bg-[#0f2547] px-5 py-2.5 text-md font-medium text-white transition-colors hover:bg-[#1d3d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(CONTACT_LINK.href);
+            }}
+            className="rounded bg-[#0f2547] px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-300 hover:bg-[#1d3d6e]"
           >
             {CONTACT_LINK.label}
-          </Link>
+          </a>
         </nav>
 
-        {/* Mobile and tablet toggle */}
+        {/* Hamburger Button */}
         <button
           type="button"
-          className="-mr-2 grid h-11 w-11 place-items-center rounded text-[#0f2547] hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#b8935a] lg:hidden"
+          className="grid h-11 w-11 place-items-center rounded text-[#0f2547] transition-colors hover:bg-slate-100 lg:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
-          onClick={() => setOpen((v) => !v)}
+          onClick={() => setOpen((prev) => !prev)}
         >
           {open ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile and tablet panel */}
+      {/* Mobile Full Width Drawer */}
+      <div
+        className={`fixed inset-0 z-[60] bg-black/40 transition-opacity duration-500 lg:hidden ${
+          open
+            ? "visible opacity-100"
+            : "invisible opacity-0 pointer-events-none"
+        }`}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+
       <div
         id="mobile-menu"
-        className={`lg:hidden ${open ? "block" : "hidden"} max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-slate-100 bg-white`}
+        className={`fixed right-0 top-0 z-[70] flex h-[100dvh] w-full flex-col bg-white shadow-2xl transition-transform duration-500 ease-in-out sm:w-full lg:hidden ${
+          open ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-hidden={!open}
+        inert={!open}
       >
-        <nav className="mx-auto flex max-w-7xl flex-col px-4 pb-6 pt-2 sm:px-6" aria-label="Mobile">
-          {NAV_LINKS.map((l) => (
-            <Link
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="border-b border-slate-100 py-3.5 text-base font-medium text-[#0f2547] hover:text-[#b8935a]"
-            >
-              {l.label}
-            </Link>
-          ))}
-          <Link
-            href={CONTACT_LINK.href}
+        {/* Drawer Header */}
+        <div className="flex h-16 shrink-0 items-center justify-between border-b border-slate-100 px-5 sm:px-8">
+          <span className="relative block h-14 w-24">
+            <NextImage
+              src="/images/logoremovebg.png"
+              alt={`${SITE.fullName} Logo`}
+              fill
+              sizes="96px"
+              className="object-contain"
+            />
+          </span>
+
+          <button
+            type="button"
             onClick={() => setOpen(false)}
-            className="mt-5 rounded bg-[#0f2547] px-5 py-3.5 text-center font-semibold text-white hover:bg-[#1d3d6e]"
+            className="grid h-11 w-11 place-items-center rounded-full text-[#0f2547] transition-colors hover:bg-slate-100"
+            aria-label="Close navigation menu"
+          >
+            <X size={27} />
+          </button>
+        </div>
+
+        {/* Drawer Navigation */}
+        <nav
+          className="flex flex-1 flex-col overflow-y-auto px-6 py-8 sm:px-10"
+          aria-label="Mobile navigation"
+        >
+          {/* <p className="mb-6 text-xs font-semibold uppercase tracking-[0.2em] text-[#b8935a]">
+            Main Navigation
+          </p> */}
+
+          {NAV_LINKS.map((link, index) => (
+            <a
+              key={link.label}
+              href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.href);
+              }}
+              className={`flex items-center justify-between border-b border-slate-100 py-5 text-xl font-semibold transition-all duration-300 hover:pl-2 hover:text-[#b8935a] sm:text-2xl ${
+                activeSection === link.href.slice(1)
+                  ? "text-[#b8935a]"
+                  : "text-[#0f2547]"
+              }`}
+              style={{
+                transitionDelay: open ? `${index * 60}ms` : "0ms",
+              }}
+            >
+              {link.label}
+              {/* <span className="text-sm text-[#b8935a]">
+                0{index + 1}
+              </span> */}
+            </a>
+          ))}
+
+          {/* Contact Button */}
+          <a
+            href={CONTACT_LINK.href}
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToSection(CONTACT_LINK.href);
+            }}
+            className="mt-10 rounded bg-[#0f2547] px-6 py-4 text-center text-base font-semibold text-white transition-colors duration-300 hover:bg-[#1d3d6e]"
           >
             {CONTACT_LINK.label}
-          </Link>
+          </a>
+
+          {/* Footer */}
+          <div className="mt-auto pt-12">
+            <p className="text-sm text-slate-400">
+              {SITE.fullName}
+            </p>
+            <div className="mt-3 h-1 w-16 rounded-full bg-[#b8935a]" />
+          </div>
         </nav>
       </div>
     </header>
   );
 }
-
-

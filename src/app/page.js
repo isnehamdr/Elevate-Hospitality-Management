@@ -1,4 +1,5 @@
 import About from "./components/About";
+import BackToTop from "./components/BackToTop";
 import ContactStrip from "./components/ContactStrip";
 import FeatureStrip from "./components/Featurestrip";
 import Footer from "./components/Footer";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <>
     <Navbar/>
+    <BackToTop/>
       <Hero/>
       <FeatureStrip/>
       <About/>

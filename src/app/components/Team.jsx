@@ -5,22 +5,22 @@ const Team = () => {
     {
       name: "Mr. Suresh Shrestha",
       role: "Consultant",
-      image: "/images/user.png",
+      image: "https://placehold.net/avatar.svg",
     },
     {
       name: "Mr. Sharan Ghale",
       role: "Managing Director (MD)",
-      image: "/images/user.png",
+      image: "https://placehold.net/avatar.svg",
     },
     {
       name: "Mr. Dipak Pokhrel",
       role: "Chief Executive Officer (CEO)",
-      image: "/images/user.png",
+      image: "https://placehold.net/avatar.svg",
     },
     {
       name: "Mr. Sailendra Thapa Magar",
       role: "Director of Training & Development",
-      image: "/images/user.png",
+      image: "https://placehold.net/avatar.svg",
     },
   ];
 
@@ -42,25 +42,25 @@ const Team = () => {
         {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+              className="bg-[#0f2547] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
             >
               {/* Member Image */}
-              <div className="h-64 bg-gray-100 overflow-hidden">
+              <div className="h-72 w-overflow-hidden p-4 ">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-contain  "
                   loading="lazy"
                 />
               </div>
 
               {/* Member Info */}
-              <div className="p-5 text-center">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">
+              <div className="p-3 text-center bg-[#0f2547]">
+                <h3 className="text-lg font-semibold text-white mb-2">
                   {member.name}
                 </h3>
 
-                <p className="text-sm text-[#0f2547] font-medium uppercase tracking-wide">
+                <p className="text-sm text-white font-medium uppercase tracking-wide">
                   {member.role}
                 </p>
               </div>

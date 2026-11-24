@@ -129,7 +129,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section id="top" className="overflow-hidden bg-white">
+    <section id="home" className="overflow-hidden bg-white">
       <div className=" grid max-w-7xl mx-auto items-stretch gap-8 px-4 pb-10 pt-6 sm:px-6 sm:pb-12 sm:pt-8 lg:grid-cols-2 lg:gap-12 lg:px-8 lg:py-20">
         {/* Text: first on phones and tablets, left on desktop */}
         <div className="flex flex-col">
@@ -166,7 +166,7 @@ export default function Hero() {
         {/* Image: second on phones and tablets, right on desktop */}
         <div className="relative aspect-[4/3] w-full overflow-hidden rounded-tl-[3rem] bg-gradient-to-br from-[#0f2547] to-[#1d3d6e] sm:aspect-[16/9] lg:aspect-auto lg:min-h-[440px]">
           <Image
-            src="/images/hero.jpg"
+            src="/images/hero.avif"
             alt="Hotel building representing Elevate Hospitality Management"
             fill
             priority
