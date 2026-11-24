@@ -8,6 +8,7 @@ import Markets from "./components/Markets";
 import Navbar from "./components/Navbar";
 import Partners from "./components/Partners";
 import Services from "./components/Services";
+import Team from "./components/Team";
 import WhyChoose from "./components/Whychoose";
 
 
@@ -23,6 +24,7 @@ export default function Home() {
       <WhyChoose/>
       <Markets/>
       <Partners/>
+      <Team/>
       <ContactStrip/>
       <Footer/>
     </>
