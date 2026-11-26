@@ -314,7 +314,7 @@ export default function Footer() {
 {/* Brand */}
 <div className="sm:col-span-5 lg:col-span-4">
   <Link
-    href="/"
+    href="#home"
     className="inline-flex items-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
     aria-label={`${SITE.fullName} home`}
   >

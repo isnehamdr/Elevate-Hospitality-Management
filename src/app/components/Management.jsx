@@ -197,12 +197,12 @@ export default function ManagementCycle() {
             sustainable results. Every hotel&apos;s plan is customized to its location, market segment,
             facilities, brand, investment structure and competition.
           </p>
-          <Link
+          {/* <Link
             href="/about"
             className="mt-7 inline-flex items-center gap-2 font-semibold text-[#b8935a] transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             Learn about our approach <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* Cycle diagram: scales to any width */}

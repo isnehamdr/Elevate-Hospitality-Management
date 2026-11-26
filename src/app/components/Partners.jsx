@@ -176,14 +176,14 @@ export default function Partners() {
           ))}
         </ul>
 
-        <div className="mt-10 text-center">
+        {/* <div className="mt-10 text-center">
           <Link
             href="/partners"
             className=" border border-[#0f2547] px-6 py-3.5 inline-flex items-center gap-2 font-semibold bg-[#0f2547]  text-white transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
           >
             See partnership options <ArrowRight size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

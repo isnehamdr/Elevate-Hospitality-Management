@@ -136,14 +136,14 @@ export default function WhyChoose() {
           ))}
         </div>
 
-        <div className="mt-10 text-center">
+        {/* <div className="mt-10 text-center">
           <Link
             href="/why-elevate"
             className="inline-flex items-center gap-2 font-semibold text-[#0f2547] transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
           >
             See all reasons <ArrowRight size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

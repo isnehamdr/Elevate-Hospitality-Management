@@ -152,14 +152,14 @@ export default function Services() {
           ))}
         </ul>
 
-        <div className="mt-10 text-center">
+        {/* <div className="mt-10 text-center">
           <Link
             href="/services"
             className="inline-flex items-center justify-center gap-2 rounded bg-[#0f2547] px-6 py-3.5 text-sm font-semibold lg:text-lg text-white transition-colors hover:bg-[#1d3d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
           >
             View all services <ArrowRight size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

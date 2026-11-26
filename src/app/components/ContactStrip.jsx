@@ -89,12 +89,12 @@ export default function ContactStrip() {
             resort or development project.
           </p>
 
-          <Link
+          {/* <Link
             href="/contact"
             className="mt-7 inline-flex items-center justify-center gap-2 rounded bg-[#b8935a] px-6 py-2.5 text-sm font-semibold text-[#0f2547] transition-colors hover:bg-[#c9a56d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white lg:text-lg"
           >
             Get in Touch <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* Contact details */}

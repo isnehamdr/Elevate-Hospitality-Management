@@ -128,14 +128,14 @@ export default function Markets() {
           ))}
         </ul>
 
-        <div className="mt-8 text-center">
+        {/* <div className="mt-8 text-center">
           <Link
             href="/markets"
             className="inline-flex items-center gap-2 font-semibold text-[#0f2547] lg:text-lg transition-colors hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
           >
             Explore our markets <ArrowRight size={16} aria-hidden="true" />
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

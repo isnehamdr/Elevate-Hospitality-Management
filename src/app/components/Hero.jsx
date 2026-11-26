@@ -149,13 +149,13 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-auto lg:pt-8">
             <Link
-              href="/contact"
+              href="#partners"
               className="inline-flex items-center justify-center gap-2 rounded bg-[#0f2547] px-6 py-3.5   text-md lg:text-lg font-medium text-white transition-colors hover:bg-[#1d3d6e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
             >
               Partner With Us <ArrowRight size={16} aria-hidden="true" />
             </Link>
             <Link
-              href="/services"
+              href="#services"
               className="inline-flex items-center justify-center rounded border border-slate-300 px-6 py-3.5 text-md font-medium lg:text-lg text-[#0f2547] transition-colors hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#b8935a]"
             >
               Explore Services

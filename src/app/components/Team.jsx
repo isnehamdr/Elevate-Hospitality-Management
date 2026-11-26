@@ -5,22 +5,22 @@ const Team = () => {
     {
       name: "Mr. Suresh Shrestha",
       role: "Consultant",
-      image: "https://placehold.net/avatar.svg",
+      image: "/images/user.png",
     },
     {
       name: "Mr. Sharan Ghale",
       role: "Managing Director (MD)",
-      image: "https://placehold.net/avatar.svg",
+      image: "/images/user.png",
     },
     {
       name: "Mr. Dipak Pokhrel",
       role: "Chief Executive Officer (CEO)",
-      image: "https://placehold.net/avatar.svg",
+      image: "/images/user.png",
     },
     {
       name: "Mr. Sailendra Thapa Magar",
       role: "Director of Training & Development",
-      image: "https://placehold.net/avatar.svg",
+      image: "/images/user.png",
     },
   ];
 

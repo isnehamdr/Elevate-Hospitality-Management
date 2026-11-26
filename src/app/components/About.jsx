@@ -219,12 +219,12 @@ export default function About() {
             investors and developers on new projects, redevelopment and turnarounds. Our results-driven,
             transparent approach creates sustainable value for every property we manage.
           </p>
-          <Link
+          {/* <Link
             href="/about"
             className="mt-7 inline-flex items-center gap-2 text-lg font-semibold text-[#0f2547] transition-colors  hover:text-[#b8935a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b8935a]"
           >
             Read more about us <ArrowRight size={16} aria-hidden="true" />
-          </Link>
+          </Link> */}
         </div>
 
         {/* Image with stats */}
